@@ -29,4 +29,4 @@ console.log("Array: ",myarray);
 
 const A2 = myarray.splice(2,5) //its a cut piece from the array and it also includes value of last index
 console.log("\nSplice :\n",A2);
-console.log("Array: ",myarray);
+console.log("Array: ",myarray); 
