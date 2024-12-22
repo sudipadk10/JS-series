@@ -16,4 +16,4 @@ Marks =[2,3,[4,3],[5,6,[5,6]]]
 
 // console.log(Array.isArray(Student));
 console.log(Array.from({name:"Ram"})); //To convert object to array we need to specify either key or value to convert otherwise it gives an empty array []
-console.log(Array.of(1,2,3,"nice"));
+console.log(Array.of(1,2,3,"nice"));    
