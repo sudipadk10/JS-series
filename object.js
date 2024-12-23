@@ -14,7 +14,6 @@ obj.city ="Biratnagar"
 // console.log(obj["game zone"]);
 // console.log(obj.mysym); //undefined !!
 // console.log(obj[mysym]); //way to print value of symbol
-
 obj.intro = function(){ //function defining
   const response =  `Hello, my name is ${this.name}.`
     return response
