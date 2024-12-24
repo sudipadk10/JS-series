@@ -1,3 +1,6 @@
+// const singletonobj = new Object()
+// const object_literals = {}
+
 const mysym = Symbol("key")
 const obj ={
     name:"Sudip",
