@@ -24,3 +24,11 @@ let name;
 // name = null ?? "SPAI" ; //SPAI
 name = undefined ?? "SPAI" ; //SPAI
 // console.log(name); 
+
+
+// Ternery Operator
+
+let balance = 70;
+
+(balance >= 50) ? console.log("Enough to recharge") : console.log("Insufficient");
+
