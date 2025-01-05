@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    
+</body>
+<script>
+    const division = document.createElement('div')
+    console.log(division);
+    
+    division.className = 'container'
+    division.id = 1 ;
+    division.setAttribute('title' ,'nothing')
+    division.style.color = 'yellow'
+    division.style.backgroundColor = 'blue';
+    // division.textContent = 'Hello World' //Another way to do this 
+    const addText = document.createTextNode('Hello World')
+    division.appendChild(addText)
+
+</script>
+
+</html>
