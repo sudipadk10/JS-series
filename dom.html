@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+</head>
+<body style="background-color: black;color:yellow; font-size: 25px;">
+    <div class="students">
+        <div class="boys">Ram</div>
+        <div class="boys">Shyam</div>
+        <div class="girl">Sita</div>
+        <div class="girl">Gita</div>
+    </div>
+</body>
+<script>
+   const parent = document.querySelector('.students')
+//    console.log(parent); //returns a html collection
+//    console.log(parent.children[1]);
+// for (let i = 0; i < parent.children.length; i++) {
+//     console.log(parent.children[i].innerHTML); 
+// }
+
+
+// console.log(parent.firstElementChild);
+// console.log(parent.lastElementChild);
+
+
+const one = document.querySelector('.girl')
+one.style.color = 'white';
+// console.log(one.parentElement);
+// console.log(one.nextElementSibling);
+// console.log(one.previousElementSibling);
+console.log(parent.childNodes); //It counts newline(enter) as text node 
+
+
+
+
+
+</script>
+
+</html>
