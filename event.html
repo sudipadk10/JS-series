@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in Javascript</title>
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  margin: 20px;
+}
+
+img {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  height: 230px;
+}
+</style>
+</head>
+
+<body style="background-color: black; color: white;">
+    <H1>Touch any image to see magic</H1>
+    <ul id="images" >
+        <li class="photo"><img id="event" src="https://imgs.search.brave.com/becXDFKv3kWPU_PQEwkOSe8GpseQSwNKjrpyXCLGmeY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZWNvZGVjYW1w/Lm9yZy9uZXdzL2Nv/bnRlbnQvaW1hZ2Vz/LzIwMjMvMTAvYnVi/YmxpbmctYW5kLWNh/cHR1cmluZzIucG5n" alt="Event flow" ></li>
+        <li class="photo">
+            <img id="loading" src="https://imgs.search.brave.com/1EOpCd5bmpHS7JLSZ44ejZPLAntYDLIJ2V77DjqLMt8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZGVsZnRzdGFjay5j/b20vaW1nL0phdmFT/Y3JpcHQvZmVhdHVy/ZS1pbWFnZS0tLWph/dmFzY3JpcHQtaW1h/Z2Utb25sb2FkLndl/YnA" alt="Loading" >
+        </li>
+        <li class="photo">
+            <img id="cat" src="https://media.gettyimages.com/id/1299492682/photo/cat-in-your-face.jpg?s=2048x2048&w=gi&k=20&c=pc3VWlEbYYpSCcpzXSfYOzRPj7s5E79khrM0SuOho30=" alt="cat" >
+        </li>
+        
+        <li class="photo">
+            <img id="tiger" src="https://imgs.search.brave.com/Wmf6C2eaXroTTjglpZbX4qQLVD51gPmpwI7XN-yZAVI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTgz/MDQ0MjExL3Bob3Rv/L3RpZ2VyLXN0aWNr/cy1vdXQtdG9uZ3Vl/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1YOE5yMXJlZ3Z2/ZnlFVE12cEtFRFFR/d0JJVjRSVUdsbndF/Q3hidGlfbWUwPQ" alt="tiger">
+        </li>
+        <li class="photo">
+            <a href="https://www.google.com"><img id="google" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" alt="Google"></a>
+        </li>
+    </ul>
+    
+</body>
+<script>
+    // document.getElementById('cat').onclick = function(){
+    //     alert("Don't hit my cat");
+    // }
+    //Not prefered to use onclick cause you get less options than using addEventListener (don't ask me too much just do it bruhh.)
+    
+
+    //useful event methods:
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, pageX, pageY, screenX, screenY
+    // altkey, ctrlKey, metaKey, shiftKey, keycode
+
+
+    // document.getElementById('cat').addEventListener('click',(e)=>{
+    //     alert("Don't hit my cat");
+    // },false) 
+    // third element of getElementById is event propagation which is true or false (false in default)
+    // false - Event bubbling (inside to outside)
+    // true - Event capturing (outside to inside)
+   
+   
+    //Let's see example of Event bubbling 
+    //when we click the image of dog the alerts are ...
+    // document.getElementById('images').addEventListener('click', (e)=>{
+    //     alert(" Any Image toched") //after dog 
+    // },false)
+
+    // document.getElementById('dog').addEventListener('click', (e)=>{
+    //     alert(" dog toched") //first executed 
+    // },false)
+
+     //Let's see example of Event capturing 
+    //when we click the image of dog the alerts are ...
+    // document.getElementById('images').addEventListener('click', (e)=>{
+    //     alert(" Any Image toched") //first executed  
+    //     // e.stopPropagation(); // this will stop the event propagation so other will not be executed - in our context "dog touched" will not be displayed .
+    // },true)
+
+    // document.getElementById('dog').addEventListener('click', (e)=>{
+    //     alert(" dog toched") //after that      
+    // },true)
+
+    // document.getElementById('google').addEventListener('click',(e)=>{
+    //     e.preventDefault(); //It will prevent the link to redirect to google.com
+    //     e.stopPropagation();
+    //     alert("Google is hacked !")
+        
+    // },false)
+
+
+    // Let's try magic : vanice them all if you click any of the images .
+    // const photos = document.getElementById('images')
+    // photos.addEventListener('click',function(e){
+    //     e.stopPropagation();
+    //     photos.innerHTML='<div id="afterMagic"><img id="dog" src="https://imgs.search.brave.com/VK1bNA9l3ueDAyt5xqQyWCA2h6OjLvOV1PqPde6Tntw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTY5/NzIzNjkyL3Bob3Rv/L2F0dGVudGl2ZWx5/LWRvZy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9Ul9sbnV0/MEJ5VXd3aUlFNjlL/VzRJQ2NZSDE2cEc5/d1dzeXVXS29KT0dO/VT0" alt="Dog" > <br> <h1>WTF bro</h1></div>'
+    //     alert('Really ???');
+    //     document.querySelector('h1').innerHTML = 'BOOM!!'
+        
+    // })
+
+    document.querySelector('#images').addEventListener('click',(e)=>{
+        e.preventDefault();
+        if(e.target.tagName === "IMG"){
+            e.target.parentNode.remove();  
+        }       
+    },false)
+
+</script>
+</html>
