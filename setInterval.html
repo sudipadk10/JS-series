@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Printing Engineer</h1>
+    <h2 div class="print"></h2>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const print = function(){
+    let date = new Date();
+    document.querySelector('.print').innerHTML =`${date.toLocaleTimeString()}`
+}
+document.getElementById('start').addEventListener('click',()=>{
+    console.log("started");
+    
+   time = setInterval(print,1000)
+})
+document.getElementById('stop').addEventListener('click',()=>{
+    console.log("stopped");
+    
+    clearInterval(time)
+})
+</script>
+</html>
