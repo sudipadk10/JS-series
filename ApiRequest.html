@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #card{
+            display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f86c0e;
+    width: 30%;
+    margin: 20px auto; /* Centers the card horizontally and adds spacing */
+    padding: 0px; /* Adds internal spacing */
+    border-radius: 55px; /* Rounded corners for a modern look */
+        }
+    </style>
+</head>
+<body>
+    <div id="card"></div>
+    
+</body>
+<script>
+const url = "https://api.github.com/users/sudipadk10"
+const xhr = new XMLHttpRequest();
+xhr.open("GET",url)
+xhr.onreadystatechange = function(){
+    
+    // console.log(xhr.readyState);
+    if(xhr.readyState === 4 && xhr.status === 200){
+       const rsp = JSON.parse(this.responseText)
+        console.log(rsp);
+        console.log(rsp.avatar_url);
+        document.querySelector("#card").innerHTML = `
+        <h1>Github Profile</H1>
+        <img src="${rsp.avatar_url}" height="300px">
+        <h2>Username : ${rsp.login}</h2><h3>followers : ${rsp.followers}</h3>`
+    }
+}
+xhr.send();
+</script>
+</html>
